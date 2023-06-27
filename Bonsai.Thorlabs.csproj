@@ -1,0 +1,261 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Title>Bonsai.Thorlabs</Title>
+    <Description>A package for the Bonsai visual programming language.</Description>
+    <Authors></Authors>
+    <Copyright>Copyright ©  2023</Copyright>
+    <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageIcon></PackageIcon>
+    <PackageOutputPath></PackageOutputPath>
+    <PackageTags>Bonsai Rx Bonsai.Thorlabs Cameras</PackageTags>
+    <TargetFramework>net472</TargetFramework>
+    <Features>strict</Features>
+    <Version>0.1.0-alpha01</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Externals\ThorlabsSDK\x64\pdvlib.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\Thorlabs.TSI.ColorInterfaces.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\Thorlabs.TSI.ColorProcessor.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\Thorlabs.TSI.Core.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\Thorlabs.TSI.CoreInterfaces.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\Thorlabs.TSI.Demosaicker.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\Thorlabs.TSI.ImageData.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\Thorlabs.TSI.ImageDataInterfaces.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\Thorlabs.TSI.PolarizationInterfaces.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\Thorlabs.TSI.PolarizationProcessor.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\Thorlabs.TSI.TLCamera.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\Thorlabs.TSI.TLCameraInterfaces.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_ccd_edt_camera_link.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_ccd_fenrir.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_ccd_pleora_ebus.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_ccd_tsi_sdk.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_ccd_tsi_usb.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_camera_sdk.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_camera_sdk1_cli.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_color_processing.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_color_processing_vector_avx2.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_core_cli.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_demosaic.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_demosaic_vector_avx2.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_logger.cfg" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_loggerx.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_LUT.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_mono_to_color_processing.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_polarization_processor.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_polarization_processor_vector_avx2.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_polarization_processor_vector_avx512.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_usb_hotplug_monitor.dll" />
+    <None Remove="Externals\ThorlabsSDK\x64\thorlabs_tsi_zelux_camera_device.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\pdvlib.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\Thorlabs.TSI.ColorInterfaces.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\Thorlabs.TSI.ColorProcessor.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\Thorlabs.TSI.Core.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\Thorlabs.TSI.CoreInterfaces.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\Thorlabs.TSI.Demosaicker.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\Thorlabs.TSI.ImageData.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\Thorlabs.TSI.ImageDataInterfaces.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\Thorlabs.TSI.PolarizationInterfaces.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\Thorlabs.TSI.PolarizationProcessor.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\Thorlabs.TSI.TLCamera.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\Thorlabs.TSI.TLCameraInterfaces.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_ccd_edt_camera_link.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_ccd_fenrir.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_ccd_pleora_ebus.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_ccd_tsi_sdk.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_ccd_tsi_usb.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_camera_sdk.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_camera_sdk1_cli.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_color_processing.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_color_processing_vector_avx2.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_core_cli.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_demosaic.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_demosaic_vector_avx2.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_demosaic_vector_sse.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_logger.cfg" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_loggerx.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_LUT.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_mono_to_color_processing.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_polarization_processor.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_polarization_processor_vector_avx2.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_polarization_processor_vector_avx512.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_usb_hotplug_monitor.dll" />
+    <None Remove="Externals\ThorlabsSDK\x86\thorlabs_tsi_zelux_camera_device.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Externals\ThorlabsSDK\x64\pdvlib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\Thorlabs.TSI.ColorInterfaces.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\Thorlabs.TSI.ColorProcessor.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\Thorlabs.TSI.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\Thorlabs.TSI.CoreInterfaces.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\Thorlabs.TSI.Demosaicker.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\Thorlabs.TSI.ImageData.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\Thorlabs.TSI.ImageDataInterfaces.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\Thorlabs.TSI.PolarizationInterfaces.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\Thorlabs.TSI.PolarizationProcessor.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\Thorlabs.TSI.TLCamera.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\Thorlabs.TSI.TLCameraInterfaces.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_ccd_edt_camera_link.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_ccd_fenrir.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_ccd_pleora_ebus.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_ccd_tsi_sdk.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_ccd_tsi_usb.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_camera_sdk.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_camera_sdk1_cli.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_color_processing.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_color_processing_vector_avx2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_core_cli.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_demosaic.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_demosaic_vector_avx2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_logger.cfg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_loggerx.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_LUT.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_mono_to_color_processing.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_polarization_processor.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_polarization_processor_vector_avx2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_polarization_processor_vector_avx512.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_usb_hotplug_monitor.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x64\thorlabs_tsi_zelux_camera_device.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\ThorlabsSDK\x86\pdvlib.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\Thorlabs.TSI.ColorInterfaces.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\Thorlabs.TSI.ColorProcessor.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\Thorlabs.TSI.Core.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\Thorlabs.TSI.CoreInterfaces.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\Thorlabs.TSI.Demosaicker.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\Thorlabs.TSI.ImageData.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\Thorlabs.TSI.ImageDataInterfaces.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\Thorlabs.TSI.PolarizationInterfaces.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\Thorlabs.TSI.PolarizationProcessor.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\Thorlabs.TSI.TLCamera.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\Thorlabs.TSI.TLCameraInterfaces.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_ccd_edt_camera_link.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_ccd_fenrir.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_ccd_pleora_ebus.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_ccd_tsi_sdk.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_ccd_tsi_usb.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_camera_sdk.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_camera_sdk1_cli.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_color_processing.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_color_processing_vector_avx2.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_core_cli.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_demosaic.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_demosaic_vector_avx2.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_demosaic_vector_sse.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_logger.cfg" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_loggerx.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_LUT.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_mono_to_color_processing.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_polarization_processor.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_polarization_processor_vector_avx2.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_polarization_processor_vector_avx512.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_usb_hotplug_monitor.dll" />
+    <Content Include="Externals\ThorlabsSDK\x86\thorlabs_tsi_zelux_camera_device.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bonsai.Core" Version="2.7.0" />
+    <PackageReference Include="OpenCV.Net" Version="3.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Thorlabs.TSI.ColorInterfaces">
+      <HintPath>Externals\ThorlabsSDK\x64\Thorlabs.TSI.ColorInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.ColorProcessor">
+      <HintPath>Externals\ThorlabsSDK\x64\Thorlabs.TSI.ColorProcessor.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.Core">
+      <HintPath>Externals\ThorlabsSDK\x64\Thorlabs.TSI.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.CoreInterfaces">
+      <HintPath>Externals\ThorlabsSDK\x64\Thorlabs.TSI.CoreInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.Demosaicker">
+      <HintPath>Externals\ThorlabsSDK\x64\Thorlabs.TSI.Demosaicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.ImageData">
+      <HintPath>Externals\ThorlabsSDK\x64\Thorlabs.TSI.ImageData.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.ImageDataInterfaces">
+      <HintPath>Externals\ThorlabsSDK\x64\Thorlabs.TSI.ImageDataInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.TLCamera">
+      <HintPath>Externals\ThorlabsSDK\x64\Thorlabs.TSI.TLCamera.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.TLCameraInterfaces">
+      <HintPath>Externals\ThorlabsSDK\x64\Thorlabs.TSI.TLCameraInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+
+</Project>
