@@ -29,6 +29,8 @@ namespace Bonsai.Thorlabs
         [Description("The optional serial number of the camera from which to acquire images.")]
         public string SerialNumber { get; set; }
 
+        [Description("Frame exposure time (in microseconds).")]
+        public int Exposure { get; set; } = 5000;
 
         private CameraSensorType cameraSensorType { get; set; } = CameraSensorType.Bayer;
 
@@ -44,10 +46,9 @@ namespace Bonsai.Thorlabs
 
         protected virtual void Configure(ITLCamera camera)
         {
+            camera.Disarm();
             camera.ExposureTime_us = 50000;
-            //const double gainDb = 6.0;
-            //var gainIndex = camera.ConvertDecibelsToGain(gainDb);
-            //camera.Gain = gainIndex;
+            camera.MaximumNumberOfFramesToQueue = 2;
             _isColor = camera.CameraSensorType == cameraSensorType;
             if (_isColor)
             {
@@ -135,10 +136,10 @@ namespace Bonsai.Thorlabs
                                                 ImageDataFormat.BGRPixel);
                                             int width = (imageData.Width_pixels);
                                             int height = (imageData.Height_pixels);
-                                            img = new IplImage(new OpenCV.Net.Size(width, height), IplDepth.U8, imageData.NumberOfChannels);
-                                            using (var buffer = Mat.CreateMatHeader(_processedImage, height, width, Depth.U8, imageData.NumberOfChannels))
+                                            img = new IplImage(new Size(width, height), IplDepth.U16, imageData.NumberOfChannels);
+                                            using (var buffer = Mat.CreateMatHeader(_processedImage, height, width, Depth.U16, imageData.NumberOfChannels))
                                             {
-                                                CV.Copy(img, buffer);
+                                                CV.Copy(buffer, img);
                                             }
                                         }
                                         else
@@ -147,10 +148,10 @@ namespace Bonsai.Thorlabs
                                             imageData = ((ImageDataUShort1D)(frame.ImageData));
                                             int width = (imageData.Width_pixels);
                                             int height = (imageData.Height_pixels);
-                                            img = new IplImage(new Size(width, height), IplDepth.U8, imageData.NumberOfChannels);
-                                            using (var buffer = Mat.CreateMatHeader(rawData, height, width, Depth.U8, imageData.NumberOfChannels))
+                                            img = new IplImage(new Size(width, height), IplDepth.U16, imageData.NumberOfChannels);
+                                            using (var buffer = Mat.CreateMatHeader(rawData, height, width, Depth.U16, imageData.NumberOfChannels))
                                             {
-                                                CV.Copy(img, buffer);
+                                                CV.Copy(buffer, img);
                                             }
                                             observer.OnNext(new ThorlabsDataFrame(
                                                 img,
